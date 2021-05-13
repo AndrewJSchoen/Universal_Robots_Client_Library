@@ -68,7 +68,7 @@ if(console_bridge_FOUND)
   target_include_directories( urcl PRIVATE
     ${console_bridge_INCLUDE_DIRS}
   )
-  target_link_libraries(urcl INTERFACE console_bridge)
+  target_link_libraries(urcl PUBLIC ${console_bridge_LIBRARIES})
 else()
   message(STATUS "Building without ROS logging support")
 endif()
@@ -84,7 +84,7 @@ else()
 endif()
 
 
-target_link_libraries(urcl INTERFACE ${Boost_Libraries})
+target_link_libraries(urcl INTERFACE ${Boost_LIBRARIES})
 
 add_subdirectory(examples)
 
